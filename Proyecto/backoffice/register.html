@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6fb">
+  <title>Crear cuenta | Nexo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="auth-card" aria-labelledby="page-title">
+      <header class="brand-row">
+        <a class="brand" href="login.html" aria-label="Nexo, ir al login">
+          <span class="brand-mark" aria-hidden="true">n</span>
+          <span>Nexo</span>
+        </a>
+        <span class="secure-label"><span class="status-dot"></span>Registro seguro</span>
+      </header>
+
+      <div class="form-content register-content">
+        <p class="eyebrow">EMPIEZA HOY</p>
+        <h1 id="page-title">Crea tu cuenta</h1>
+        <p class="intro">Prepara tu espacio de trabajo en unos pasos.</p>
+
+        <form class="auth-form" action="login.html" method="post">
+          <div class="field">
+            <label for="name">Nombre completo</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Como te llamas" required>
+          </div>
+          <div class="field">
+            <label for="email">Correo electronico</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@empresa.com" required>
+          </div>
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Contrasena</label>
+              <span class="field-hint">Minimo 8 caracteres</span>
+            </div>
+            <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Crea una contrasena" required>
+          </div>
+          <label class="check-option terms-option" for="terms">
+            <input id="terms" name="terms" type="checkbox" required>
+            <span>Acepto los terminos y la politica de privacidad.</span>
+          </label>
+          <button class="primary-button" type="submit">Crear cuenta <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="switch-copy">Ya tienes una cuenta? <a href="login.html">Iniciar sesion</a></p>
+      </div>
+
+      <footer class="auth-footer">
+        <span>© 2025 Nexo</span>
+        <span>Simple, claro y en control.</span>
+      </footer>
+    </section>
+
+    <aside class="visual-panel register-panel" aria-label="Beneficios de Nexo">
+      <div class="visual-topline"><span class="visual-spark" aria-hidden="true">✳</span> Un mejor ritmo para tu equipo</div>
+      <div class="visual-copy">
+        <p class="visual-kicker">MENOS RUIDO, MAS AVANCE</p>
+        <h2>Haz espacio<br>para lo importante.</h2>
+        <p class="visual-description">Un lugar sencillo para organizar ideas, colaborar y ver tu progreso.</p>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <p>Por fin, todo lo que necesitamos para avanzar esta en un mismo lugar.</p>
+        <div class="quote-person"><span class="quote-avatar">MR</span><span><strong>Marina Rios</strong><small>Equipo de producto</small></span></div>
+      </div>
+      <div class="visual-bottom"><span class="avatar-stack"><i>AL</i><i>CM</i><i>JR</i></span><span>Equipos que avanzan juntos</span></div>
+    </aside>
+  </main>
+</body>
+</html>
