@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172c">
+  <title>Casa Roswaal | Archivo Real</title>
+  <noscript><meta http-equiv="refresh" content="0; url=login.html"></noscript>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="home-page" data-page="home">
+  <div class="home-shell">
+    <aside class="sidebar">
+      <a class="brand home-brand" href="home.html" aria-label="Archivo Real, inicio">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>ARCHIVO REAL</span>
+      </a>
+      <div class="sidebar-rule"><span>✧</span></div>
+      <p class="sidebar-label">SANTUARIO DE LUGUNICA</p>
+      <nav class="side-nav" aria-label="Navegacion principal">
+        <a class="side-link active" href="#projects"><span aria-hidden="true">▦</span> Proyectos</a>
+        <a class="side-link" href="#new-project"><span aria-hidden="true">✧</span> Nuevo registro</a>
+      </nav>
+      <div class="sidebar-note">
+        <span class="note-crest" aria-hidden="true">❄</span>
+        <p>Un paso a la vez. Incluso el camino mas largo comienza hoy.</p>
+        <span class="note-signature">— Emilia</span>
+      </div>
+      <div class="sidebar-user">
+        <span class="user-emblem" aria-hidden="true">♙</span>
+        <span class="user-details"><strong id="user-name">Aventurero</strong><small>Miembro del archivo</small></span>
+        <button class="logout-button" id="logout-button" type="button" aria-label="Cerrar sesion">↗</button>
+      </div>
+    </aside>
+
+    <main class="home-main">
+      <header class="home-header">
+        <div class="breadcrumb"><span>CAPITAL REAL</span><span aria-hidden="true">/</span><strong>ARCHIVO DE PROYECTOS</strong></div>
+        <div class="header-mark"><span aria-hidden="true">✧</span> TEMPORADA DE LA PROMESA</div>
+      </header>
+
+      <section class="welcome-section">
+        <div>
+          <p class="home-eyebrow"><span aria-hidden="true">✦</span> SALON DE REGISTROS</p>
+          <h1>Tu archivo, <em>tu historia.</em></h1>
+          <p class="welcome-copy">Administra tus proyectos y deja constancia de cada logro en el reino.</p>
+        </div>
+        <a class="home-primary-button" href="#new-project"><span aria-hidden="true">＋</span> Registrar proyecto</a>
+      </section>
+
+      <section class="project-summary" aria-label="Resumen de proyectos">
+        <div class="summary-seal" aria-hidden="true">♧</div>
+        <div><span class="summary-label">REGISTROS EN EL ARCHIVO</span><strong id="project-count">—</strong></div>
+        <span class="summary-divider" aria-hidden="true"></span>
+        <div class="summary-caption"><span class="status-dot"></span> Cada idea merece su lugar</div>
+        <span class="summary-ornament" aria-hidden="true">✧</span>
+      </section>
+
+      <section class="projects-section" id="projects" aria-labelledby="projects-heading">
+        <div class="section-heading">
+          <div><p class="home-eyebrow">TU COLECCION</p><h2 id="projects-heading">Proyectos registrados</h2></div>
+          <span class="collection-tag"><span aria-hidden="true">✧</span> ARCHIVO PERSONAL</span>
+        </div>
+
+        <p class="notice" id="home-message" role="status" aria-live="polite" hidden></p>
+        <div class="project-grid" id="project-list" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-crest" aria-hidden="true">✧</span>
+          <h3>Aun no hay registros</h3>
+          <p>Tu primera aventura puede empezar con un nuevo proyecto.</p>
+          <a class="text-action" href="#new-project">Crear el primer proyecto <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="project-editor" id="new-project" aria-labelledby="form-heading">
+        <div class="editor-heading">
+          <div><p class="home-eyebrow">EL SIGUIENTE CAPITULO</p><h2 id="form-heading">Registrar un proyecto</h2></div>
+          <span class="editor-crest" aria-hidden="true">❄</span>
+        </div>
+        <form class="project-form" id="project-form">
+          <input type="hidden" id="project-id" name="projectId">
+          <div class="project-fields">
+            <label class="project-field">Nombre del proyecto
+              <input id="project-title" name="title" type="text" maxlength="120" placeholder="Ej. El archivo de la mansion" required>
+            </label>
+            <label class="project-field">Repositorio <span class="optional-label">OPCIONAL</span>
+              <input id="project-repository" name="repository" type="url" placeholder="https://github.com/usuario/proyecto">
+            </label>
+            <label class="project-field field-wide">Descripcion
+              <textarea id="project-description" name="description" rows="3" maxlength="2000" placeholder="Cuenta brevemente de que trata este proyecto..." required></textarea>
+            </label>
+            <label class="project-field field-wide">Tecnologias <span class="optional-label">SEPARADAS POR COMAS</span>
+              <input id="project-technologies" name="technologies" type="text" placeholder="JavaScript, Node.js, CSS">
+            </label>
+          </div>
+          <div class="editor-actions">
+            <button class="home-primary-button" id="save-project" type="submit"><span aria-hidden="true">✧</span> Guardar en el archivo</button>
+            <button class="cancel-button" id="cancel-edit" type="button" hidden>Cancelar edicion</button>
+          </div>
+        </form>
+      </section>
+      <footer class="home-footer"><span>ARCHIVO REAL DE LUGUNICA</span><span>✧ &nbsp; Un registro a la vez &nbsp; ✧</span></footer>
+    </main>
+  </div>
+
+  <template id="project-template">
+    <article class="project-card">
+      <div class="project-card-top"><span class="project-card-crest" aria-hidden="true">✧</span><span class="project-card-label">REGISTRO REAL</span><span class="project-card-menu" aria-hidden="true">✦</span></div>
+      <h3 class="project-title"></h3>
+      <p class="project-description"></p>
+      <div class="technology-list"></div>
+      <a class="repository-link" hidden target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Ver repositorio</a>
+      <div class="project-card-footer"><span class="project-card-id"></span><div class="project-actions"><button class="edit-project" type="button">Editar</button><button class="delete-project" type="button">Eliminar</button></div></div>
+    </article>
+  </template>
+</body>
+</html>

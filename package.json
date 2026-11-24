@@ -1,0 +1,13 @@
+{
+  "name": "lugunica-backoffice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backoffice local con SQLite",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}

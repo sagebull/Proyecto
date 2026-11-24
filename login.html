@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6fb">
+  <title>Iniciar sesion | Lugunica</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="login">
+  <main class="auth-layout">
+    <section class="auth-card" aria-labelledby="page-title">
+      <header class="brand-row">
+        <a class="brand" href="login.html" aria-label="Lugunica, inicio de sesion">
+          <span class="brand-mark" aria-hidden="true">✧</span>
+          <span>Lugunica</span>
+        </a>
+        <span class="secure-label"><span class="status-dot"></span>Acceso seguro</span>
+      </header>
+
+      <div class="form-content">
+        <p class="eyebrow">ARCHIVO REAL DE LUGUNICA</p>
+        <h1 id="page-title">El reino te espera</h1>
+        <p class="intro">Ingresa tus datos para volver a tu archivo de proyectos.</p>
+
+        <p class="notice auth-notice" id="form-message" role="alert" aria-live="assertive" hidden></p>
+        <form class="auth-form" id="login-form">
+          <div class="field">
+            <label for="email">Correo electronico</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@empresa.com" required>
+          </div>
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Contrasena</label>
+              <span class="field-hint">Minimo 6 caracteres</span>
+            </div>
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="Ingresa tu contrasena" required>
+          </div>
+          <div class="form-options">
+            <label class="check-option" for="remember">
+              <input id="remember" name="remember" type="checkbox">
+              <span>Recordarme</span>
+            </label>
+            <span class="muted-small">Usa una cuenta segura</span>
+          </div>
+          <button class="primary-button" type="submit">Iniciar sesion <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="switch-copy">Aun no tienes cuenta? <a href="register.html">Crear cuenta</a></p>
+      </div>
+
+      <footer class="auth-footer">
+        <span>© 2025 Lugunica</span>
+        <span>Un registro a la vez.</span>
+      </footer>
+    </section>
+
+    <aside class="visual-panel" aria-label="Panel de bienvenida">
+      <div class="visual-topline"><span class="visual-spark" aria-hidden="true">✧</span> Archivo real de Lugunica</div>
+      <div class="visual-copy">
+        <p class="visual-kicker">LA SELECCION REAL</p>
+        <h2>Registra cada<br>nueva aventura.</h2>
+        <p class="visual-description">Tus proyectos, reunidos en un archivo digno de la capital real.</p>
+      </div>
+      <div class="preview-card" aria-hidden="true">
+        <div class="preview-header"><span>Registro del reino</span><span class="preview-menu">•••</span></div>
+        <div class="preview-progress"><span></span></div>
+        <div class="preview-stats"><strong>✧</strong><span>cada historia merece un registro</span></div>
+        <div class="preview-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="preview-days"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      </div>
+      <div class="visual-bottom"><span class="avatar-stack"><i>EM</i><i>RE</i><i>SU</i></span><span>El archivo de la seleccion real</span></div>
+    </aside>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
