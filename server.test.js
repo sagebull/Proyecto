@@ -113,6 +113,12 @@ test("SQLite API supports registration, login, protected project CRUD, and logou
   assert.equal(project.userId, user.id);
   assert.deepEqual(project.technologies, ["HTML", "CSS"]);
 
+  const projectDetails = await fetch(`${baseUrl}/api/v1/projects/${project._id}`, {
+    headers: { "auth-token": session.token }
+  });
+  assert.equal(projectDetails.status, 200);
+  assert.equal((await projectDetails.json()).title, "Mansion Roswaal");
+
   const list = await fetch(`${baseUrl}/api/v1/projects`, {
     headers: { "auth-token": session.token }
   });

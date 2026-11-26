@@ -1,4 +1,8 @@
-const API_BASE = "/api/v1";
+const LOCAL_API = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+  && window.location.port === "3000";
+const API_BASE = LOCAL_API
+  ? "/api/v1"
+  : "https://portfolio-api-three-black.vercel.app/api/v1";
 const TOKEN_KEY = "authToken";
 const USER_KEY = "authUser";
 const LOGOUT_ERROR_KEY = "logoutError";
@@ -177,14 +181,31 @@ function renderProjects(projects) {
     }
 
     card.querySelector(".edit-project").addEventListener("click", () => {
-      updateProjectForm(project);
-      document.getElementById("new-project").scrollIntoView({ behavior: "smooth" });
-      document.getElementById("project-title").focus();
+      editProject(projectId);
     });
     card.querySelector(".delete-project").addEventListener("click", () => {
       removeProject(projectId, project.title || "este proyecto");
     });
     list.append(card);
+  }
+}
+
+async function editProject(projectId) {
+  if (!projectId) {
+    setHomeMessage("Este proyecto no tiene un identificador valido.");
+    return;
+  }
+
+  try {
+    const project = await apiRequest(`/projects/${encodeURIComponent(projectId)}`, {}, true);
+    if (!project || typeof project !== "object") {
+      throw new Error("No se pudo cargar el proyecto para editarlo.");
+    }
+    updateProjectForm(project);
+    document.getElementById("new-project").scrollIntoView({ behavior: "smooth" });
+    document.getElementById("project-title").focus();
+  } catch (error) {
+    setHomeMessage(error.message || "No fue posible consultar el proyecto.");
   }
 }
 
@@ -214,6 +235,7 @@ async function saveProject(event) {
     title: form.elements.title.value.trim(),
     description: form.elements.description.value.trim(),
     technologies,
+    images: [],
     repository: form.elements.repository.value.trim()
   };
 
@@ -284,10 +306,12 @@ function initializeHome() {
 
 async function endSession() {
   let logoutError = "";
-  try {
-    await apiRequest("/auth/logout", { method: "POST" }, true);
-  } catch (error) {
-    logoutError = error.message || "No fue posible invalidar la sesion en el servidor.";
+  if (LOCAL_API) {
+    try {
+      await apiRequest("/auth/logout", { method: "POST" }, true);
+    } catch (error) {
+      logoutError = error.message || "No fue posible invalidar la sesion en el servidor.";
+    }
   }
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(USER_KEY);
